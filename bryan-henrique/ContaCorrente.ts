@@ -6,7 +6,7 @@ export class ContaCorrente implements IConta{
     deposito : number;
     saque : number;
     transferencia : number;
-    clientes: Cliente[] = [];
+    saldo : number;
     contas: Conta[] = [];
     
     constructor(deposito:number, saque: number, transferencia:number){
@@ -15,8 +15,12 @@ export class ContaCorrente implements IConta{
         this.transferencia = transferencia;
     }
 
-    verrificarSaldo(): void {
-        
+    sacar(): void{
+        this.saldo = this.saldo - this.saque;
+    }
+
+    Depositar(): void{
+        this.saldo = this.saldo + this.deposito;
     }
 
     cadastrarContaCorrente(contas: Conta, Cliente, ContasdoCliente: Conta){
